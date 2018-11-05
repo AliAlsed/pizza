@@ -11,17 +11,46 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+var config = {
+  apiKey: "AIzaSyAqIpHbM_e7wBMN5ry8twInDpneGBtDWjM",
+  authDomain: "pizza-e8577.firebaseapp.com",
+  databaseURL: "https://pizza-e8577.firebaseio.com",
+  projectId: "pizza-e8577",
+  storageBucket: "pizza-e8577.appspot.com",
+  messagingSenderId: "493300855944"
+};
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { PanelPage } from '../pages/panel/panel';
+import { AddfodPage } from '../pages/addfod/addfod';
+import { RequistPage } from '../pages/requist/requist';
+
+import { Geolocation } from '@ionic-native/geolocation';
+import { RegisterPage } from '../pages/register/register';
+import { AdminrequestPage } from '../pages/adminrequest/adminrequest';
+import { CallNumber } from '@ionic-native/call-number';
+
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    PanelPage,
+    AddfodPage,
+    RequistPage,
+    RegisterPage,
+    AdminrequestPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,10 +58,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    PanelPage,
+    AddfodPage,
+    RequistPage,
+    RegisterPage,
+    AdminrequestPage
   ],
   providers: [
     StatusBar,
+    Geolocation,
+    CallNumber,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

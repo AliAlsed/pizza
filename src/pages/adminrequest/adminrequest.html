@@ -1,0 +1,132 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+   <p>      قائمة الطلبات </p>
+  
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+  
+      <ion-card *ngFor="let item of list | async">
+
+        <div *ngIf="!item.payload.val().arrived">
+            <ion-item>
+                <div [id]="item.payload.val().map" #item.payload.val().map style="width: 100%; height: 250px;overflow: hidden;margin-bottom: 10px;"></div>
+    
+            </ion-item>
+    
+              <ion-card-header>
+                <p>معلومات الطلب</p>
+                <span>{{item.payload.val().date}}</span>
+              </ion-card-header>
+            
+              <ion-list>
+                <button ion-item>
+                    <ion-icon name="pizza"></ion-icon>
+                  النوع : 
+                  {{item.payload.val().name}}
+                </button>
+            
+                <button ion-item>
+                    <ion-icon name="cash"></ion-icon>
+                  السعر : 
+                  {{item.payload.val().price}}
+                </button>
+            
+                <button ion-item>
+                    <ion-icon name="help"></ion-icon>
+                    الوصف : 
+                    {{item.payload.val().des}}
+                </button>
+            
+                <button ion-item>
+                    <ion-icon name="person"></ion-icon>
+                    الاسم : 
+                 {{item.payload.val().username}}
+                </button>
+            
+                <button ion-item>
+                    <ion-icon name="pin"></ion-icon>
+                    العنوان : 
+                  {{item.payload.val().addr}}
+                </button>
+            
+                <button ion-item>
+                    <ion-icon name="phone-portrait"></ion-icon>
+                    رقم الهاتف : 
+                  {{item.payload.val().phone}}
+                </button>
+      
+                <ion-item>
+                 <div class="msections">
+                    <div class="delete">
+                        <button>
+                            <ion-icon name="trash"></ion-icon>
+                            حذف
+                          </button>
+                    </div>
+    
+                    <div class="done">
+                        <button  (click)="arrivedDone(item.key)">
+                            <ion-icon name="car"></ion-icon>
+                          تم التوصيل
+                        </button>
+    
+                    </div>
+    
+                 </div>
+                </ion-item>
+            
+              </ion-list>
+        </div>
+
+        
+        <div *ngIf="item.payload.val().arrived">
+
+                      
+            <ion-list>
+                <button ion-item>
+                    <ion-icon name="pizza"></ion-icon>
+                  النوع : 
+                  {{item.payload.val().name}}
+                </button>
+
+            <button ion-item>
+                <ion-icon name="person"></ion-icon>
+                الاسم : 
+             {{item.payload.val().username}}
+            </button>
+        
+            <button ion-item>
+                <ion-icon name="pin"></ion-icon>
+                العنوان : 
+              {{item.payload.val().addr}}
+            </button>
+        
+            <button ion-item>
+                <ion-icon name="phone-portrait"></ion-icon>
+                رقم الهاتف : 
+              {{item.payload.val().phone}}
+            </button>
+
+
+            
+          <ion-item>
+              <div class="donear" *ngIf="item.payload.val().arrived">
+                 <p class="waite">
+                  الطلب موصل
+                 </p>
+              </div>
+             </ion-item>
+
+            </ion-list>
+         
+        </div>
+      
+        </ion-card>
+  
+  </ion-content>
+  

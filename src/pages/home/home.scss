@@ -1,3 +1,112 @@
 page-home {
 
 }
+
+
+page-home .toolbar-background-md
+
+{
+background: #FF4136;
+}
+
+
+page-home .toolbar-title-md {
+    color: #FFF !important;
+    direction: rtl !important;
+    text-align: center;
+    font-family: 'Cairo', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+page-home .toolbar-title-md p{
+margin: 0 5px;
+display: inline-block;
+}
+
+page-home .panel {
+    position: fixed;
+    left: 5px;
+
+}
+
+page-home .panel ion-icon {
+   margin-right: 10px;
+   display: inline-block;
+}
+
+.tabs-md .tabbar {
+    direction: rtl !important;
+    background: #FF4136!important;
+}
+
+.tabs-md .tab-button {
+    color: #FFF !important;
+    font-family: 'Cairo', sans-serif;
+}
+
+.tabs-md .tab-button-icon {
+    color: #FFF !important;
+}
+
+.tabs-md .tab-button[aria-selected=true] {
+    color: #FFF !important;
+}
+
+.tabs-md[tabslayout="icon-top"] .has-icon .tab-button-text {
+margin: 0 !important;
+}
+
+.setdire {
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+
+}
+
+page-home .card-md {
+ direction: rtl;
+ font-family: 'Cairo', sans-serif;
+
+}
+
+
+page-home .select {
+    display: flex;
+}
+
+page-home .select > div {
+    width: 100%;
+}
+
+page-home .select .price {
+    color: #2ECC40;
+    direction: ltr;
+     text-align: right;
+}
+
+page-home .select .get {
+    color: #0074D9;
+    direction: ltr;
+}
+
+page-home .card-title-md{
+    display: flex;
+    align-items: center;
+}
+
+page-home .card-title-md h3 {
+    width: 100%;
+    font-size: 18px;
+    color: #000;
+}
+
+page-home .card-title-md p {
+    width: 100%;
+    text-align: left;
+    font-size: 11px;
+}
+
+.bar-button-default-md {
+    color: #FFF !important;
+}

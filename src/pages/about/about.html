@@ -1,11 +1,71 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+ <p>      قائمة الطلبات </p>
+       <ion-icon name="md-list"></ion-icon>
+
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+
+
+    <ion-card *ngFor="let item of list | async">
+        <ion-card-header>
+          <p>معلومات الطلب</p>
+          <span>{{item.date}}</span>
+        </ion-card-header>
+      
+        <ion-list>
+          <button ion-item>
+              <ion-icon name="pizza"></ion-icon>
+            النوع : 
+            {{item.name}}
+          </button>
+      
+          <button ion-item>
+              <ion-icon name="cash"></ion-icon>
+            السعر : 
+            {{item.price}}
+          </button>
+      
+          <button ion-item>
+              <ion-icon name="help"></ion-icon>
+              الوصف : 
+              {{item.des}}
+          </button>
+      
+          <button ion-item>
+              <ion-icon name="person"></ion-icon>
+              الاسم : 
+           {{item.username}}
+          </button>
+      
+          <button ion-item>
+              <ion-icon name="pin"></ion-icon>
+              العنوان : 
+            {{item.addr}}
+          </button>
+      
+          <button ion-item>
+              <ion-icon name="phone-portrait"></ion-icon>
+              رقم الهاتف : 
+            {{item.phone}}
+          </button>
+
+          <ion-item>
+           <div class="done">
+              <p class="waite" *ngIf="!item.arrived">
+                جاري توصيل الطلب
+              </p>
+              <p class="arrived" *ngIf="item.arrived">
+                تم توصيل الطلب
+              </p>
+           </div>
+          </ion-item>
+      
+        </ion-list>
+      </ion-card>
 
 </ion-content>

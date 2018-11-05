@@ -1,0 +1,71 @@
+page-panel {
+
+}
+
+
+page-panel .toolbar-background-md
+
+{
+background: #FF4136;
+}
+
+
+page-panel .toolbar-title-md {
+    color: #FFF !important;
+    direction: rtl !important;
+    text-align: right;
+    font-family: 'Cairo', sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+
+page-panel .toolbar-title-md p{
+margin: 0 5px;
+display: inline-block;
+}
+
+page-panel .panel {
+    position: fixed;
+    left: 5px;
+
+}
+
+
+page-panel .card-md {
+height: 150px;
+position: relative;
+display: flex;
+
+justify-content: center;
+align-items: center;
+background-image: url("https://raeak.ml/home-pattern.f7038fca68ed9ea833e7.jpg");
+background-size: cover;
+}
+
+
+page-panel .overlayone, page-panel .overlayotwo, page-panel .overlaythree {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: #007bff;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+page-panel .overlayotwo {
+    background: #FFDC00;
+}
+
+page-panel .overlaythree {
+    background: #85144b;
+}
+
+page-panel .mcontainer {
+    z-index: 4;
+    color: #FFF;
+    font-family: 'Cairo', sans-serif;
+    font-size: 24px;
+    text-align: center;
+}
