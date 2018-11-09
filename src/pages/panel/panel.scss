@@ -43,7 +43,7 @@ background-size: cover;
 }
 
 
-page-panel .overlayone, page-panel .overlayotwo, page-panel .overlaythree {
+page-panel .overlayone, page-panel .overlayotwo, page-panel .overlaythree,page-panel .overlayfor {
     position: absolute;
     top: 0;
     left: 0;
@@ -60,6 +60,10 @@ page-panel .overlayotwo {
 
 page-panel .overlaythree {
     background: #85144b;
+}
+
+page-panel .overlayfor {
+    background: #FF4136;
 }
 
 page-panel .mcontainer {

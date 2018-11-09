@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import * as $ from 'jquery'
 import { AngularFireDatabase } from '@angular/fire/database';
+import { OneSignal } from '@ionic-native/onesignal';
 
 /**
  * Generated class for the AddfodPage page.
@@ -18,7 +19,8 @@ import { AngularFireDatabase } from '@angular/fire/database';
 export class AddfodPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public db : AngularFireDatabase, public toast : ToastController) {
+    public db : AngularFireDatabase, public toast : ToastController,
+    public oneSignal: OneSignal) {
   }
 
   ionViewDidLoad() {
@@ -30,12 +32,7 @@ export class AddfodPage {
 
     
   ngOnInit(){
-    var winh = $(window).height();
-    var tabmd = $(".tabs-md .tab-button").innerHeight();
-    console.log(tabmd);
-
-    $("page-addfod .header-content").height(winh - (tabmd+tabmd));
-  
+ 
     }
 
 
@@ -54,7 +51,7 @@ export class AddfodPage {
           name:name,
           price:price,
           des:des,
-          image:"https://cdn.vox-cdn.com/thumbor/JWomuYQiZue5Y6nx5QaaA9Il8ZY=/0x0:798x599/1200x800/filters:focal(0x0:798x599)/cdn.vox-cdn.com/uploads/chorus_image/image/46569362/pizza-hot-dogs.0.0.jpg",
+          image:"https://www.metro.ca/userfiles/image/recipes/pizza-saucisse-piquante-2301.jpg",
           date: d.getFullYear() + "/" + d.getDate() + "/" + monthNames[d.getMonth()],
         }).then( done => {
           var toast = this.toast.create({
@@ -63,6 +60,33 @@ export class AddfodPage {
             cssClass:"setdire"
           }).present();
           this.navCtrl.popToRoot();
+
+
+
+          this.db.list("ids").valueChanges().subscribe( ids => {
+
+            ids.forEach(id => {
+        
+        
+              this.oneSignal.postNotification({
+                app_id:"e2de86a3-f6de-41d7-b722-31bb510f92dd",
+                include_player_ids:[id['id']],
+                contents: {
+                  en: des
+                },
+                headings: {
+                  en: "اكلة جديدة"
+                }
+              })
+      
+             
+            })
+        
+          })
+
+
+
+          
         })
 
       }

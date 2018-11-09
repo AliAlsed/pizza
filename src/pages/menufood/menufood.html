@@ -1,0 +1,76 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        
+        <div class="mtitle">
+          <p> قائمة الطعام </p>
+        </div>
+  
+
+  
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content >
+  
+      <div class="waiteloading">
+
+          <div class="loadicon">
+          <i id="load" class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+          
+          </div>
+          </div>
+          
+          <div class="notfoundheader" >
+          
+              <div class="notfound">
+                  <i class="fa fa-frown-o fa-3x" aria-hidden="true"></i>
+                  <p>لا يوجد اكلات</p>
+                  </div>
+                  
+          
+          </div>
+  
+      <ion-card *ngFor="let item of list | async">
+          <div class="imagedev" [ngStyle]="{'background-image': 'url(' + item.payload.val().image + ')'}"></div>
+          <ion-card-content>
+            <ion-card-title>
+              <h3>
+                {{item.payload.val().name}}
+              </h3>
+        
+              </ion-card-title>
+            <p>
+             {{item.payload.val().des}}
+            </p>
+          </ion-card-content>
+          
+          <ion-item>
+  
+              <div class="select">
+  
+                  <div class="price">
+                   <span (click)="delete(item.key)">
+                      حذف
+                   </span>
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  </div>
+        
+                  <div class="get" >
+                   
+                    <span (click)="edit(item.key,item.payload.val().name,item.payload.val().des,item.payload.val().price)">
+                        تعديل
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                      </span>
+        
+                  </div>
+        
+                </div>
+  
+          </ion-item>
+  
+        </ion-card>
+  
+  </ion-content>
+  

@@ -5,6 +5,7 @@ import * as $ from 'jquery'
 import { AboutPage } from '../about/about';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { OneSignal } from '@ionic-native/onesignal';
 
 /**
  * Generated class for the RequistPage page.
@@ -28,7 +29,8 @@ export class RequistPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public db : AngularFireDatabase, public load : LoadingController,
     public toast : ToastController,public geolocation : Geolocation,
-    public auth : AngularFireAuth, public alert : AlertController) {
+    public auth : AngularFireAuth, public alert : AlertController,
+    public oneSignal: OneSignal) {
 
     this.name = navParams.get("name");
     this.des = navParams.get("des");
@@ -103,6 +105,29 @@ export class RequistPage {
             toast.present();
             this.navCtrl.setRoot(AboutPage);
             this.navCtrl.popToRoot();
+
+
+
+            this.db.list("adminid").valueChanges().subscribe( ids => {
+
+              ids.forEach(id => {
+          
+                this.oneSignal.postNotification({
+                  app_id:"e2de86a3-f6de-41d7-b722-31bb510f92dd",
+                  include_player_ids:[id['id']],
+                  contents: {
+                    en: des
+                  },
+                  headings: {
+                    en: "طلبية جديدة"
+                  }
+                })
+          
+               
+              })
+            
+            })
+
           })
       
         })

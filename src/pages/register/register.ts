@@ -3,9 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController, LoadingController
 import * as $ from 'jquery'
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
-import firebase from 'firebase';
 import { ContactPage } from '../contact/contact';
 
 /**

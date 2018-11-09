@@ -7,8 +7,25 @@
     </ion-navbar>
   </ion-header>
   
-  <ion-content padding>
+  <ion-content >
   
+      <div class="waiteloading">
+
+          <div class="loadicon">
+          <i id="load" class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+          
+          </div>
+          </div>
+          
+          <div class="notfoundheader" >
+          
+              <div class="notfound">
+                  <i class="fa fa-frown-o fa-3x" aria-hidden="true"></i>
+                  <p>لا يوجد طلبات</p>
+                  </div>
+                  
+          
+          </div>
   
       <ion-card *ngFor="let item of list | async">
 
@@ -70,7 +87,7 @@
                     </div>
     
                     <div class="done">
-                        <button  (click)="arrivedDone(item.key)">
+                        <button  (click)="arrivedDone(item.key,item.payload.val().email)">
                             <ion-icon name="car"></ion-icon>
                           تم التوصيل
                         </button>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddfodPage } from '../addfod/addfod';
 import { AdminrequestPage } from '../adminrequest/adminrequest';
+import { MenufoodPage } from '../menufood/menufood';
 
 /**
  * Generated class for the PanelPage page.
@@ -31,6 +32,10 @@ export class PanelPage {
 
   requests(){
     this.navCtrl.push(AdminrequestPage);
+  }
+
+  fodmenu(){
+    this.navCtrl.push(MenufoodPage)
   }
 
 }
