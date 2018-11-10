@@ -1,17 +1,15 @@
-page-addfod {
+page-edit {
 
 }
 
-
-
-page-addfod .toolbar-background-md
+page-edit .toolbar-background-md
 
 {
 background: #FF4136;
 }
 
 
-page-addfod .toolbar-title-md {
+page-edit .toolbar-title-md {
     color: #FFF !important;
     direction: rtl !important;
     text-align: right;
@@ -20,14 +18,14 @@ page-addfod .toolbar-title-md {
     align-items: center;
 }
 
-page-addfod .toolbar-title-md p{
+page-edit .toolbar-title-md p{
 margin: 0 5px;
 display: inline-block;
 }
 
 
 
-page-addfod .header-content .content {
+page-edit .header-content .content {
     width: 100%;
     position: relative;
     text-align: center;
@@ -35,13 +33,13 @@ page-addfod .header-content .content {
 }
 
 
-page-addfod .logorreg {
+page-edit .logorreg {
     display: flex;
     align-items: center;
     direction: rtl;
 }
 
-page-addfod .header-content .content .inputs button:first-child {
+page-edit .header-content .content .inputs button:first-child {
     padding: 20px;
     display: block;
     border: 1px solid #007bff !important;
@@ -52,7 +50,7 @@ page-addfod .header-content .content .inputs button:first-child {
 
 
 
-page-addfod .header-content .content .inputs h2 {
+page-edit .header-content .content .inputs h2 {
 font-family: 'Cairo', sans-serif;
 margin-top: 20px;
 border-bottom: 1px dashed #007bff;
@@ -64,7 +62,7 @@ padding-left: 10px;
 margin-bottom: 20px;
 }
 
-page-addfod .header-content .content .inputs input {
+page-edit .header-content .content .inputs input {
     direction: rtl;
     font-family: 'Cairo', sans-serif;
     padding: 14px;
@@ -74,20 +72,20 @@ page-addfod .header-content .content .inputs input {
     padding-right: 40px;
 }
 
-page-addfod .email, page-addfod .pass, page-addfod .name {
+page-edit .email, page-edit .pass, page-edit .name {
     margin-bottom:10px;
     position: relative;
 }
 
 
-page-addfod .inputs i {
+page-edit .inputs i {
     position: absolute;
     top: 20px;
     right: 15px;
     color: #FF4136;
 }
 
-page-addfod .logorreg p {
+page-edit .logorreg p {
     width: 100%;
     text-align: left;
     font-family: 'Cairo', sans-serif;
@@ -107,7 +105,7 @@ page-addfod .logorreg p {
     text-align: right;
 }
 
-page-addfod .micon{
+page-edit .micon{
     display: inline-block;
     border: 1px dashed;
     border-radius: 50%;
@@ -120,12 +118,12 @@ page-addfod .micon{
 
 
 
-page-addfod .content{
+page-edit .content{
 padding: 16px;
 }
 
 
-page-addfod  .myimage {
+page-edit  .myimage {
     height: 250px;
     direction: rtl;
     font-family: 'Cairo', sans-serif;
@@ -141,11 +139,11 @@ page-addfod  .myimage {
     font-size: 20px;
 }
 
-page-addfod .imagedev {
+page-edit .imagedev {
     margin-bottom: 10px;
     border: 1px dashed #CCC;
 }
 
-page-addfod  .myimage p {
+page-edit  .myimage p {
     margin: 0;
 }

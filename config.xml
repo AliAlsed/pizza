@@ -90,5 +90,6 @@
     </plugin>
     <plugin name="mx.ferreyra.callnumber" spec="~0.0.2" />
     <plugin name="onesignal-cordova-plugin" spec="2.4.5" />
+    <plugin name="cordova-plugin-camera" spec="4.0.3" />
     <engine name="android" spec="7.1.1" />
 </widget>

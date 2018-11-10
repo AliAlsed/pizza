@@ -33,6 +33,10 @@ export class HomePage {
           $(".notfoundheader").css("display","flex");
         }
 
+        if(data[0] != undefined){
+          $(".notfoundheader").hide();
+        }
+
       })
 
       auth.authState.subscribe(user => {

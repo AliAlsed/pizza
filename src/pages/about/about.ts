@@ -27,6 +27,11 @@ export class AboutPage {
       if(user[0] == undefined){
         $(".notfoundheader").css("display","flex");
       }
+
+      if(user[0] != undefined){
+        $(".notfoundheader").hide();
+      }
+
     })
 
   }

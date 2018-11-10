@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController, ToastController }
 import * as $ from 'jquery'
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
+import { EditPage } from '../edit/edit';
 
 /**
  * Generated class for the MenufoodPage page.
@@ -34,6 +35,10 @@ export class MenufoodPage {
 
       if(data[0] == undefined){
         $(".notfoundheader").css("display","flex");
+      }
+
+      if(data[0] != undefined){
+        $(".notfoundheader").hide();
       }
 
     })
@@ -69,6 +74,16 @@ export class MenufoodPage {
         }},"الغاء"]
       }).present();
 
+    }
+
+    edit(key,image,name,des,price){
+      this.navCtrl.push(EditPage,{
+        key:key,
+        image:image,
+        name:name,
+        des:des,
+        price:price
+      })
     }
 
 }

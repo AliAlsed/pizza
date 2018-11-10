@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>اضافة اكلة جديدة</ion-title>
+    <ion-title>تعديل الاكلة</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -25,7 +25,7 @@
         
             <div class="singupview">
         
-              <div class="imagedev" *ngIf="imagecheck" [ngStyle]="{'background-image': 'url(' + imageurl + ')'}"></div>
+              <div class="imagedev" *ngIf="imagecheck" [ngStyle]="{'background-image': 'url(' + imageh + ')'}"></div>
 
 
                 <div class="myimage" (click)="takePhoto()" *ngIf="!imagecheck">
@@ -41,7 +41,7 @@
        
         
             <div class="email">
-              <input type="text" placeholder="اسم الاكلة" #name required>
+              <input type="text" placeholder="اسم الاكلة" #name required [value]="nameh">
               <i class="fa fa-cutlery" aria-hidden="true"></i>
             
             </div>
@@ -49,20 +49,20 @@
         
             
             <div class="pass">
-              <input type="number" placeholder="السعر" #price required> 
+              <input type="number" placeholder="السعر" #price required [value]="priceh"> 
               <i class="fa fa-money" aria-hidden="true"></i>
             
             </div>
 
                         
             <div class="pass">
-                <input type="text" placeholder="وصف قصير" #des required> 
+                <input type="text" placeholder="وصف قصير" #des required [value]="desh"> 
                 <i class="fa fa-info" aria-hidden="true"></i>
               
               </div>
             
             <div class="logorreg">
-              <button ion-button color="secondary" outline (click)="addfod(name.value,price.value,des.value)" >نشر الوجبة</button>
+              <button ion-button color="secondary" outline (click)="editphoed(key,name.value,price.value,des.value)" >تعديل الاكلة</button>
             </div>
       
         

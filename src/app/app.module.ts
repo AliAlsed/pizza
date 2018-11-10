@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { OneSignal } from '@ionic-native/onesignal';
+import { Camera } from '@ionic-native/camera';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -27,12 +28,15 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { PanelPage } from '../pages/panel/panel';
 import { AddfodPage } from '../pages/addfod/addfod';
 import { RequistPage } from '../pages/requist/requist';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { Geolocation } from '@ionic-native/geolocation';
 import { RegisterPage } from '../pages/register/register';
 import { AdminrequestPage } from '../pages/adminrequest/adminrequest';
 import { CallNumber } from '@ionic-native/call-number';
 import { MenufoodPage } from '../pages/menufood/menufood';
+import { from } from 'rxjs';
+import { EditPage } from '../pages/edit/edit';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,8 @@ import { MenufoodPage } from '../pages/menufood/menufood';
     RequistPage,
     RegisterPage,
     AdminrequestPage,
-    MenufoodPage
+    MenufoodPage,
+    EditPage
 
   ],
   imports: [
@@ -54,7 +59,8 @@ import { MenufoodPage } from '../pages/menufood/menufood';
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -67,6 +73,7 @@ import { MenufoodPage } from '../pages/menufood/menufood';
     AddfodPage,
     RequistPage,
     RegisterPage,
+    EditPage,
     AdminrequestPage,
     MenufoodPage
   ],
@@ -76,6 +83,7 @@ import { MenufoodPage } from '../pages/menufood/menufood';
     CallNumber,
     SplashScreen,
     OneSignal,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

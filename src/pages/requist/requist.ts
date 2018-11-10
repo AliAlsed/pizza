@@ -45,7 +45,7 @@ export class RequistPage {
   }
 
 
-  request(name,des,price,username,addr,phone){
+  request(name,des,price,username,addr,number,phone){
 
     var d = new Date();
 
@@ -62,7 +62,7 @@ export class RequistPage {
     var rand5 = Math.floor(Math.random() * char.length);
     var rand = char[rand1] + char[rand2] + char[rand3] + char[rand4] + char[rand5];
 
-   if(username.length > 0 && addr.length > 0 && phone.length > 0){
+   if(username.length > 0 && addr.length > 0 && phone.length > 0 && number > 0){
 
    var alert = this.alert.create({
      subTitle:"هل تريد تأكيد الطلب؟",
@@ -97,6 +97,7 @@ export class RequistPage {
             lng:pos.coords.longitude,
             email:this.email,
             map:rand,
+            number:number,
             arrived:false
       
           }).then( ()=> {

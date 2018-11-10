@@ -53,11 +53,15 @@
             </ion-item>
 
             <ion-item>
-                <ion-input type="text" placeholder="رقم الهاتف" #phone></ion-input>
+                <ion-input type="number" placeholder="الكمبية" #mnumber></ion-input>
+              </ion-item>
+
+            <ion-item>
+                <ion-input type="number" placeholder="رقم الهاتف" #phone></ion-input>
               </ion-item>
 
               <ion-item>
-                  <button ion-button full color="danger" (click)="request(name,des,price,username.value,addr.value,phone.value)">
+                  <button ion-button full color="danger" (click)="request(name,des,price,username.value,addr.value,mnumber.value,phone.value)">
                     اكمال الطلب
                       <i class="fa fa-shopping-basket" aria-hidden="true" style="display: inline-block;margin-right:5px;"></i>
 
