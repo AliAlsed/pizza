@@ -27,13 +27,11 @@
           
           </div>
   
-      <ion-card *ngFor="let item of list | async">
+      <ion-card *ngFor="let item of list | async | reverse">
 
         <div *ngIf="!item.payload.val().arrived">
-            <ion-item>
                 <div [id]="item.payload.val().map" #item.payload.val().map style="width: 100%; height: 250px;overflow: hidden;margin-bottom: 10px;"></div>
     
-            </ion-item>
     
               <ion-card-header>
                 <p>معلومات الطلب</p>
@@ -86,7 +84,7 @@
                 <ion-item>
                  <div class="msections">
                     <div class="delete">
-                        <button>
+                        <button (click)="delete(item.key)">
                             <ion-icon name="trash"></ion-icon>
                             حذف
                           </button>
@@ -142,7 +140,12 @@
                  <p class="waite">
                   الطلب موصل
                  </p>
+                 <button (click)="delete(item.key)" item-start>
+                    <ion-icon name="trash"></ion-icon>
+                    حذف
+                  </button>
               </div>
+
              </ion-item>
 
             </ion-list>

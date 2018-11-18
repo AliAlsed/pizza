@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddfodPage } from '../addfod/addfod';
 import { AdminrequestPage } from '../adminrequest/adminrequest';
 import { MenufoodPage } from '../menufood/menufood';
+import { NotificationPage } from '../notification/notification';
 
 /**
  * Generated class for the PanelPage page.
@@ -36,6 +37,10 @@ export class PanelPage {
 
   fodmenu(){
     this.navCtrl.push(MenufoodPage)
+  }
+
+  noti(){
+    this.navCtrl.push(NotificationPage);
   }
 
 }

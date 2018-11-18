@@ -31,14 +31,14 @@ export class MenufoodPage {
 
     db.list("fods").valueChanges().subscribe(data => {
        
-      $(".waiteloading").hide();
+      $("page-menufood .waiteloading").hide();
 
       if(data[0] == undefined){
-        $(".notfoundheader").css("display","flex");
+        $("page-menufood .notfoundheader").css("display","flex");
       }
 
       if(data[0] != undefined){
-        $(".notfoundheader").hide();
+        $("page-menufood .notfoundheader").hide();
       }
 
     })
@@ -53,7 +53,7 @@ export class MenufoodPage {
     var winh = $(window).height();
     var navh = $(".tabs-md .tab-button").innerHeight();
   
-    $(".waiteloading,.notfoundheader").height(winh - (navh + navh) );
+    $("page-menufood .waiteloading,page-menufood .notfoundheader").height(winh - (navh + navh) );
   
     }
 

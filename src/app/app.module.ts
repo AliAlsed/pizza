@@ -35,8 +35,9 @@ import { RegisterPage } from '../pages/register/register';
 import { AdminrequestPage } from '../pages/adminrequest/adminrequest';
 import { CallNumber } from '@ionic-native/call-number';
 import { MenufoodPage } from '../pages/menufood/menufood';
-import { from } from 'rxjs';
 import { EditPage } from '../pages/edit/edit';
+import { NotificationPage } from '../pages/notification/notification';
+import { ReversePipe } from '../pipes/reverse/reverse';
 
 @NgModule({
   declarations: [
@@ -49,9 +50,11 @@ import { EditPage } from '../pages/edit/edit';
     AddfodPage,
     RequistPage,
     RegisterPage,
+    EditPage,
     AdminrequestPage,
     MenufoodPage,
-    EditPage
+    NotificationPage,
+    ReversePipe
 
   ],
   imports: [
@@ -75,7 +78,8 @@ import { EditPage } from '../pages/edit/edit';
     RegisterPage,
     EditPage,
     AdminrequestPage,
-    MenufoodPage
+    MenufoodPage,
+    NotificationPage
   ],
   providers: [
     StatusBar,

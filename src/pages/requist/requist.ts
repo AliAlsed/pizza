@@ -38,6 +38,8 @@ export class RequistPage {
 
     this.email = auth.auth.currentUser.email;
 
+    this.geolocation.getCurrentPosition();
+
   }
 
   ionViewDidLoad() {
@@ -109,7 +111,7 @@ export class RequistPage {
 
 
 
-            this.db.list("adminid").valueChanges().subscribe( ids => {
+            this.db.list("ids",ref => ref.orderByChild("email").equalTo("admin@admin.com")).valueChanges().subscribe( ids => {
 
               ids.forEach(id => {
           

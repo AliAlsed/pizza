@@ -28,7 +28,7 @@
 
 </div>
 
-    <ion-card *ngFor="let item of list | async">
+    <ion-card *ngFor="let item of list | async | reverse">
         <ion-card-header>
           <p>معلومات الطلب</p>
           <span>{{item.date}}</span>

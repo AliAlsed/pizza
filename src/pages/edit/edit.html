@@ -25,7 +25,7 @@
         
             <div class="singupview">
         
-              <div class="imagedev" *ngIf="imagecheck" [ngStyle]="{'background-image': 'url(' + imageh + ')'}"></div>
+              <div class="imagedev" (click)="takePhoto()" *ngIf="imagecheck" [ngStyle]="{'background-image': 'url(' + imageh + ')'}"></div>
 
 
                 <div class="myimage" (click)="takePhoto()" *ngIf="!imagecheck">

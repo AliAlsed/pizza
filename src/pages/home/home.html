@@ -38,7 +38,7 @@
         
         </div>
 
-    <ion-card *ngFor="let item of list | async">
+    <ion-card *ngFor="let item of list | async | reverse">
         <div class="imagedev" [ngStyle]="{'background-image': 'url(' + item.image + ')'}"></div>
         <ion-card-content>
           <ion-card-title>

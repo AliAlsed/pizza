@@ -6,6 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { RegisterPage } from '../pages/register/register';
+import { OneSignal } from '@ionic-native/onesignal';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   templateUrl: 'app.html'
@@ -14,7 +16,7 @@ export class MyApp {
   rootPage:any = TabsPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
-    public auth : AngularFireAuth) {
+    public auth : AngularFireAuth,public oneSignal: OneSignal,public db : AngularFireDatabase) {
 
       auth.authState.subscribe(user => {
         if(user == undefined){
@@ -27,9 +29,46 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+      
 
-         
+  
+      this.oneSignal.startInit('e2de86a3-f6de-41d7-b722-31bb510f92dd', '493300855944');
+
+      this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
+      
+      this.oneSignal.endInit();
+
+         this.mynote();
 
     });
   }
+
+
+  mynote(){
+
+
+
+this.auth.authState.subscribe(user => {
+  if(user != undefined){
+
+      this.oneSignal.getIds().then( id => {
+       var sub = this.db.list("ids",ref => ref.orderByChild("id").equalTo(id.userId)).valueChanges().subscribe( mdata => {
+         if(mdata[0] == undefined){
+           this.db.list("ids").push({
+             id:id.userId,
+             email:this.auth.auth.currentUser.email
+           }).then( ()=> {
+             sub.unsubscribe();
+           })
+         }
+        });
+        });
+
+  }
+})
+
+
+
+  }
+
 }

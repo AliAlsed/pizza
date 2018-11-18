@@ -79,16 +79,18 @@ export class AddfodPage {
             ids.forEach(id => {
         
         
-              this.oneSignal.postNotification({
-                app_id:"e2de86a3-f6de-41d7-b722-31bb510f92dd",
-                include_player_ids:[id['id']],
-                contents: {
-                  en: des
-                },
-                headings: {
-                  en: "اكلة جديدة"
-                }
-              })
+              if(id['email'] != "admin@admin.com"){
+                this.oneSignal.postNotification({
+                  app_id:"e2de86a3-f6de-41d7-b722-31bb510f92dd",
+                  include_player_ids:[id['id']],
+                  contents: {
+                    en: des
+                  },
+                  headings: {
+                    en: "اكلة جديدة"
+                  }
+                })
+              }
       
              
             })

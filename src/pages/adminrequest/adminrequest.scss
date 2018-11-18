@@ -80,9 +80,19 @@ page-adminrequest .card-md {
         text-align: center;
         padding-top: 10px;
         border-top: 1px dashed #AAA;
+        display: flex;
+        align-items: center;
+    }
+
+    page-adminrequest .donear button {
+        background: transparent;
+        direction: ltr;
     }
         
         page-adminrequest .donear .waite {
             color: #148F77;
+            width: 100%;
+            text-align: right;
+            margin: 0;
         }
 

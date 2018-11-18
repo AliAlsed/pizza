@@ -19,6 +19,7 @@ export class HomePage {
   admin = false;
   email;
   murl = "https";
+  userid;
 
   constructor(public navCtrl: NavController, public auth : AngularFireAuth,
     public alert : AlertController,public db : AngularFireDatabase,public oneSignal: OneSignal) {
@@ -27,14 +28,14 @@ export class HomePage {
 
       db.list("fods").valueChanges().subscribe(data => {
        
-        $(".waiteloading").hide();
+        $("page-home .waiteloading").hide();
 
         if(data[0] == undefined){
-          $(".notfoundheader").css("display","flex");
+          $("page-home .notfoundheader").css("display","flex");
         }
 
         if(data[0] != undefined){
-          $(".notfoundheader").hide();
+          $("page-home .notfoundheader").hide();
         }
 
       })
@@ -47,72 +48,25 @@ export class HomePage {
         }
       })
 
-      this.checkNote();
-      this.mynote();
-      this.adminnote();
-      
+      this.oneSignal.getIds().then( id => {
+this.userid = id.userId
+      })
+     
 
   }
+
 
   ngOnInit(){
     var winh = $(window).height();
     var navh = $(".tabs-md .tab-button").innerHeight();
   
-    $(".waiteloading,.notfoundheader").height(winh - (navh + navh) );
+    $("page-home .waiteloading,page-home .notfoundheader").height(winh - (navh + navh) );
   
     }
 
-  mynote(){
-    this.oneSignal.startInit('e2de86a3-f6de-41d7-b722-31bb510f92dd', '493300855944');
-
-this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
 
 
-this.oneSignal.endInit();
-  }
 
-  
-  checkNote(){
-    this.auth.authState.subscribe(user => {
-      if(user != undefined){
-        if(user.email != "admin@admin.com"){
-
-          this.oneSignal.getIds().then( id => {
-            this.db.list("ids",ref => ref.orderByChild("id").equalTo(id.userId)).valueChanges().subscribe( mdata => {
-             if(mdata[0] == undefined){
-               this.db.list("ids").push({
-                 id:id.userId,
-                 email:this.auth.auth.currentUser.email
-               })
-             }
-            });
-            });
-
-        }
-      }
-    })
-  }
-
-  adminnote(){
-    this.auth.authState.subscribe(user => {
-      if(user != undefined){
-        if(user.email == "admin@admin.com"){
-
-          this.oneSignal.getIds().then( id => {
-            this.db.list("adminid",ref => ref.orderByChild("id").equalTo(id.userId)).valueChanges().subscribe( mdata => {
-             if(mdata[0] == undefined){
-               this.db.list("adminid").push({
-                 id:id.userId,
-                 email:this.auth.auth.currentUser.email
-               })
-             }
-            });
-            });
-
-        }
-      }
-    })
-  }
 
 
   adminlogin(){
@@ -133,9 +87,25 @@ this.oneSignal.endInit();
       cssClass:"setdire",
       buttons:[
         {text:"خروج",handler : ()=> {
+
+
+          this.auth.authState.subscribe(user => {
+
+          
+              var sub = this.db.list("ids",ref => ref.orderByChild("id").equalTo(this.userid)).snapshotChanges().subscribe(data => {
+               this.db.list("ids").remove(data[0].key).then(done => {
+                 sub.unsubscribe();
+               })
+              })
+            
+
+          })
+
           this.auth.auth.signOut();
           this.navCtrl.setRoot(RegisterPage);
           this.navCtrl.goToRoot;
+
+
         }}
       ,"الغاء"]
     });

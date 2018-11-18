@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,Platform, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,Platform, AlertController,ToastController } from 'ionic-angular';
 import { Observable } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { OneSignal } from '@ionic-native/onesignal';
@@ -31,7 +31,7 @@ export class AdminrequestPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public db : AngularFireDatabase,
     public platform : Platform,public alert : AlertController,
-    public oneSignal: OneSignal) {
+    public oneSignal: OneSignal,public toast : ToastController) {
 
       platform.ready().then( ()=> {
         this.loadmap();
@@ -41,14 +41,14 @@ export class AdminrequestPage {
 
     db.list("request").valueChanges().subscribe(user => {
 
-      $(".waiteloading").hide();
+      $("page-adminrequest .waiteloading").hide();
 
       if(user[0] == undefined){
-        $(".notfoundheader").css("display","flex");
+        $("page-adminrequest .notfoundheader").css("display","flex");
       }
 
       if(user[0] != undefined){
-        $(".notfoundheader").hide();
+        $("page-adminrequest .notfoundheader").hide();
       }
 
     })
@@ -60,7 +60,7 @@ export class AdminrequestPage {
     var winh = $(window).height();
     var navh = $(".tabs-md .tab-button").innerHeight();
   
-    $(".waiteloading,.notfoundheader").height(winh - (navh + navh) );
+    $("page-adminrequest .waiteloading,page-adminrequest .notfoundheader").height(winh - (navh + navh) );
   
     }
 
@@ -147,7 +147,7 @@ export class AdminrequestPage {
                 en: "تم ايصال الطلب الخاص بك"
               },
               headings: {
-                en: "اكلة جديدة"
+                en: "تهانيا"
               }
             })
   
@@ -159,6 +159,25 @@ export class AdminrequestPage {
       }},"الغاء"]
     })
     alert.present();
+  }
+
+  delete(key){
+      
+
+    this.alert.create({
+      subTitle:"هل انت متأكد من حذف الطلب؟",
+      cssClass:"setdire",
+      buttons:[{text:"حذف",handler: ()=> {
+        this.db.list("request").remove(key).then( OmarReal => {
+          this.toast.create({
+            message:"تم حذف الطلب",
+            duration:3000,
+            cssClass:"setdire"
+          }).present();
+        } )
+      }},"الغاء"]
+    }).present();
+
   }
 
 }

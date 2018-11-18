@@ -22,14 +22,14 @@ export class AboutPage {
 
     db.list("request",ref =>ref.orderByChild("email").equalTo(auth.auth.currentUser.email)).valueChanges().subscribe(user => {
 
-      $(".waiteloading").hide();
+      $("page-about .waiteloading").hide();
 
       if(user[0] == undefined){
-        $(".notfoundheader").css("display","flex");
+        $("page-about .notfoundheader").css("display","flex");
       }
 
       if(user[0] != undefined){
-        $(".notfoundheader").hide();
+        $("page-about .notfoundheader").hide();
       }
 
     })
