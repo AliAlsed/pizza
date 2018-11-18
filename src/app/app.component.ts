@@ -32,7 +32,7 @@ export class MyApp {
       
 
   
-      this.oneSignal.startInit('e2de86a3-f6de-41d7-b722-31bb510f92dd', '493300855944');
+      this.oneSignal.startInit('APP_KEY', 'SENDER_ID');
 
       this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
       
